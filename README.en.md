@@ -17,7 +17,7 @@ AI-assisted development skill packs extracted from real projects. Each skill inc
 | [pdf-skills](./pdf-skills/) | PDF knowledge extraction | PDF text extraction, CJK spacing fix, batch rule extraction, standard document structuring | 26KB |
 | [assist-skills](./assist-skills/) | AI pilot setup | Deploy AI-assisted dev workflow in projects, configure Trae/CodeBuddy/Claude Code/opencode rules, 14 templates + 10 Workflows | 124KB |
 
-> Skill name equals directory name: the `name` in `SKILL.md` frontmatter is the directory name, and the ClawHub package is `@linlan/<directory-name>`.
+> Skill name equals directory name: the `name` in `SKILL.md` frontmatter is the directory name, and the ClawHub package is `@linlannet/<directory-name>`.
 
 ## Quick Start
 
@@ -33,11 +33,11 @@ Copy the needed skill directory into your Agent workspace's skills folder.
 
 ```bash
 npm i -g clawhub
-clawhub install @linlan/eframe-skills
-clawhub install @linlan/excel-skills
-clawhub install @linlan/drawio-skills
-clawhub install @linlan/pdf-skills
-clawhub install @linlan/assist-skills
+clawhub install @linlannet/eframe-skills
+clawhub install @linlannet/excel-skills
+clawhub install @linlannet/drawio-skills
+clawhub install @linlannet/pdf-skills
+clawhub install @linlannet/assist-skills
 ```
 
 ### Option 3: Search and Install via OpenClaw

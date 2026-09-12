@@ -58,6 +58,6 @@ description: 一句话描述。功能：(1)xxx (2)xxx。当用户需要xxx时使
 ---
 ```
 
-`name` 必须与技能目录名完全一致（如 `eframe-skills/` 对应 `name: eframe-skills`），可读的中文名称写进 `description` 首句；ClawHub 包名即 `@linlan/<目录名>`。
+`name` 必须与技能目录名完全一致（如 `eframe-skills/` 对应 `name: eframe-skills`），可读的中文名称写进 `description` 首句；ClawHub 包名即 `@linlannet/<目录名>`。
 
 description 要求：前 60 字符内包含触发关键词，之后展开功能列表和适用场景。

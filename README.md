@@ -17,7 +17,7 @@
 | [pdf-skills](./pdf-skills/) | PDF 知识提取 | PDF 文本提取、CJK 间距修复、知识规则批量提取、行业标准文档结构化 | 26KB |
 | [assist-skills](./assist-skills/) | AI 开发助手接入 | 项目中部署 AI 辅助开发流程、配置 Trae/CodeBuddy/Claude Code/opencode 规则、14 个标准模板 + 10 个 Workflow | 124KB |
 
-> 技能名与目录名一致：`SKILL.md` frontmatter 的 `name` 即目录名，ClawHub 包名为 `@linlan/<目录名>`。
+> 技能名与目录名一致：`SKILL.md` frontmatter 的 `name` 即目录名，ClawHub 包名为 `@linlannet/<目录名>`。
 
 ### eframe-skills -- eframe 框架快速开发
 
@@ -97,11 +97,11 @@ git clone https://gitee.com/linlannet/linlan-skills.git
 
 ```bash
 npm i -g clawhub
-clawhub install @linlan/eframe-skills
-clawhub install @linlan/excel-skills
-clawhub install @linlan/drawio-skills
-clawhub install @linlan/pdf-skills
-clawhub install @linlan/assist-skills
+clawhub install @linlannet/eframe-skills
+clawhub install @linlannet/excel-skills
+clawhub install @linlannet/drawio-skills
+clawhub install @linlannet/pdf-skills
+clawhub install @linlannet/assist-skills
 ```
 
 ### 方式三：通过 OpenClaw 搜索安装
