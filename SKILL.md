@@ -1,6 +1,6 @@
 ---
 name: linlan-skills
-description: 麟览技能包仓库总览。包含5个技能包：(1)eframe-skills - eframe框架快速开发 (2)excel-skills - Excel全栈处理 (3)drawio-skills - DrawIO图表生成 (4)pdf-skills - PDF知识提取 (5)assist-skills - AI开发助手接入。当用户询问技能包整体情况或需要跨技能协作时使用。具体技能请进入对应子目录读取其SKILL.md。
+description: 麟览技能包仓库总览。包含5个技能包：(1)eframe-skills - eframe框架快速开发 (2)excel-skills - Excel全栈处理 (3)drawio-skills - DrawIO图表生成（结构化DSL+架构模式库+lint） (4)pdf-skills - PDF知识提取 (5)assist-skills - AI开发助手接入。当用户询问技能包整体情况或需要跨技能协作时使用。具体技能请进入对应子目录读取其SKILL.md。
 ---
 
 # Linlan Skills - 麟览技能包
@@ -15,7 +15,7 @@ description: 麟览技能包仓库总览。包含5个技能包：(1)eframe-skill
 |--------|------|----------|
 | eframe 框架快速开发 | `eframe-skills/SKILL.md` | 在 eframe（SpringBoot + MyBatis + Vue3）上新增业务模块、CRUD、前后端代码 |
 | Excel 全栈处理 | `excel-skills/SKILL.md` | xlsx 创建/读取/编辑、样式、pandas、PDF 转 Excel、飞书表格 |
-| DrawIO 图表生成 | `drawio-skills/SKILL.md` | 架构图、流程图、ER 图、UML、拓扑图，个人风格 preset |
+| DrawIO 图表生成 | `drawio-skills/SKILL.md` | 架构图、流程图、ER 图、UML、拓扑图；结构化 DSL 生成 + 5 套架构模式 + lint |
 | PDF 知识提取 | `pdf-skills/SKILL.md` | PDF 文本提取、CJK 间距修复、知识规则提取、标准文档结构化 |
 | AI 开发助手接入 | `assist-skills/SKILL.md` | 项目部署 AI 辅助开发流程、配置工具规则、14 模板 + 10 Workflow |
 
