@@ -1,0 +1,74 @@
+<mxfile host="app.diagrams.net" agent="linlan-build_diagram" version="24.0.0">
+  <diagram id="linlan-电商微服务架构" name="电商微服务架构"><mxGraphModel dx="1190" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1190" pageHeight="850" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    <mxCell id="g-access" value="接入层" style="swimlane;html=1;startSize=30;fillColor=none;strokeColor=#6666FF;swimlaneFillColor=none;fontFamily=Tahoma;fontSize=12;fontStyle=1;rounded=0;" vertex="1" parent="1">
+      <mxGeometry x="200" y="0" width="380" height="250" as="geometry" />
+    </mxCell>
+    <mxCell id="g-biz" value="业务层" style="swimlane;html=1;startSize=30;fillColor=none;strokeColor=#00994D;swimlaneFillColor=none;fontFamily=Tahoma;fontSize=12;fontStyle=1;rounded=0;" vertex="1" parent="1">
+      <mxGeometry x="0" y="280" width="580" height="110" as="geometry" />
+    </mxCell>
+    <mxCell id="g-infra" value="基础设施层" style="swimlane;html=1;startSize=30;fillColor=none;strokeColor=#EA6B66;swimlaneFillColor=none;fontFamily=Tahoma;fontSize=12;fontStyle=1;rounded=0;" vertex="1" parent="1">
+      <mxGeometry x="200" y="420" width="380" height="110" as="geometry" />
+    </mxCell>
+    <mxCell id="g-ext" value="外部系统" style="swimlane;html=1;startSize=30;fillColor=none;strokeColor=#000000;swimlaneFillColor=none;fontFamily=Tahoma;fontSize=12;fontStyle=1;rounded=0;" vertex="1" parent="1">
+      <mxGeometry x="600" y="280" width="180" height="110" as="geometry" />
+    </mxCell>
+    <mxCell id="web" value="Web / App" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#000000;fontFamily=Tahoma;fontSize=12;strokeWidth=1;" vertex="1" parent="g-access">
+      <mxGeometry x="20" y="30" width="140" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="admin" value="Admin 后台" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#000000;fontFamily=Tahoma;fontSize=12;strokeWidth=1;" vertex="1" parent="g-access">
+      <mxGeometry x="220" y="30" width="140" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="gw" value="API 网关" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#000000;fontFamily=Tahoma;fontSize=12;strokeWidth=1;" vertex="1" parent="g-access">
+      <mxGeometry x="120" y="170" width="140" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="auth" value="认证服务" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#000000;fontFamily=Tahoma;fontSize=12;strokeWidth=1;" vertex="1" parent="g-biz">
+      <mxGeometry x="20" y="30" width="140" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="order" value="订单服务" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#000000;fontFamily=Tahoma;fontSize=12;strokeWidth=1;" vertex="1" parent="g-biz">
+      <mxGeometry x="220" y="30" width="140" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="pay" value="支付服务" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#000000;fontFamily=Tahoma;fontSize=12;strokeWidth=1;" vertex="1" parent="g-biz">
+      <mxGeometry x="420" y="30" width="140" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="mq" value="Kafka" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#000000;fontFamily=Tahoma;fontSize=12;strokeWidth=1;" vertex="1" parent="g-infra">
+      <mxGeometry x="20" y="30" width="140" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="db" value="MySQL 集群" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#000000;fontFamily=Tahoma;fontSize=12;strokeWidth=1;" vertex="1" parent="g-infra">
+      <mxGeometry x="220" y="30" width="140" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="third" value="第三方支付" style="rounded=0;dashed=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#000000;fontFamily=Tahoma;fontSize=12;strokeWidth=1;dashed=1;" vertex="1" parent="g-ext">
+      <mxGeometry x="20" y="30" width="140" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="e2" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;labelBackgroundColor=#FFFFFF;fontSize=10;" edge="1" parent="1" source="web" target="gw">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e3" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;labelBackgroundColor=#FFFFFF;fontSize=10;" edge="1" parent="1" source="admin" target="gw">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e4" value="鉴权" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;labelBackgroundColor=#FFFFFF;fontSize=10;" edge="1" parent="1" source="gw" target="auth">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e5" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;labelBackgroundColor=#FFFFFF;fontSize=10;" edge="1" parent="1" source="gw" target="order">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e6" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;labelBackgroundColor=#FFFFFF;fontSize=10;" edge="1" parent="1" source="gw" target="pay">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e7" value="回调" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;dashed=1;labelBackgroundColor=#FFFFFF;fontSize=10;" edge="1" parent="1" source="pay" target="third">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e8" value="订单事件" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;dashed=1;labelBackgroundColor=#FFFFFF;fontSize=10;" edge="1" parent="1" source="order" target="mq">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e9" value="读写" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;labelBackgroundColor=#FFFFFF;fontSize=10;" edge="1" parent="1" source="order" target="db">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e10" value="读写" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;labelBackgroundColor=#FFFFFF;fontSize=10;" edge="1" parent="1" source="pay" target="db">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+  </root>
+</mxGraphModel></diagram>
+</mxfile>

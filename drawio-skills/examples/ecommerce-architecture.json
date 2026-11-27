@@ -1,0 +1,33 @@
+{
+  "title": "电商微服务架构",
+  "layout": "layered",
+  "direction": "TB",
+  "nodes": [
+    {"id": "web",  "label": "Web / App",   "role": "service",  "layer": 0, "group": "access"},
+    {"id": "admin","label": "Admin 后台",  "role": "service",  "layer": 0, "group": "access"},
+    {"id": "gw",   "label": "API 网关",     "role": "gateway",  "layer": 1, "group": "access"},
+    {"id": "auth", "label": "认证服务",     "role": "security", "layer": 2, "group": "biz"},
+    {"id": "order","label": "订单服务",     "role": "service",  "layer": 2, "group": "biz"},
+    {"id": "pay",  "label": "支付服务",     "role": "service",  "layer": 2, "group": "biz"},
+    {"id": "mq",   "label": "Kafka",        "role": "queue",    "layer": 3, "group": "infra"},
+    {"id": "db",   "label": "MySQL 集群",   "role": "database", "layer": 3, "group": "infra"},
+    {"id": "third","label": "第三方支付",   "role": "external", "layer": 2, "group": "ext", "dashed": true}
+  ],
+  "groups": [
+    {"id": "access", "label": "接入层", "layer": 0, "color": "blue"},
+    {"id": "biz",    "label": "业务层", "layer": 2, "color": "green"},
+    {"id": "infra",  "label": "基础设施层", "layer": 3, "color": "red"},
+    {"id": "ext",    "label": "外部系统", "layer": 2, "color": "default"}
+  ],
+  "edges": [
+    {"from": "web",   "to": "gw",    "label": "HTTPS"},
+    {"from": "admin", "to": "gw",    "label": "HTTPS"},
+    {"from": "gw",    "to": "auth",  "label": "鉴权"},
+    {"from": "gw",    "to": "order", "label": "REST"},
+    {"from": "gw",    "to": "pay",   "label": "REST"},
+    {"from": "pay",   "to": "third", "label": "回调", "kind": "async"},
+    {"from": "order", "to": "mq",    "label": "订单事件", "kind": "async"},
+    {"from": "order", "to": "db",    "label": "读写"},
+    {"from": "pay",   "to": "db",    "label": "读写"}
+  ]
+}

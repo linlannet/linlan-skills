@@ -4,6 +4,9 @@
 
 ## 功能特性
 
+- **结构化生成专业架构图**：只写结构（节点/边/层级/角色），脚本确定性计算坐标，不再手写坐标导致布局错乱
+- **5 套架构模式骨架**：分层架构 / C4 Container / 数据链路 / 安全域 / 调用链，先选模式再填内容
+- **结构 lint + 视觉自检**：自动抓重复 ID、悬空边、重叠、越界、字号过小等机械问题
 - 生成 `.drawio` 架构图 / 流程图 / ER 图 / UML / 时序图 / 网络拓扑 / ML 模型图
 - 从已有 `.drawio` 文件**确定性提取个人绘制风格**，生成 style preset
 - 从单张参考图**分析风格 + 结构**（页面/分组泳道/节点类型/边/布局），供生成新图参考
@@ -13,7 +16,35 @@
 
 ## 快速开始
 
-### 1. 提取个人风格
+### 1. 生成一张架构图（推荐路径）
+
+先写结构化 spec（只描述结构，不写坐标），字段说明见 `references/spec-format.md`，可直接改 `examples/ecommerce-architecture.json`：
+
+```json
+{
+  "title": "简单架构",
+  "layout": "layered",
+  "direction": "TB",
+  "nodes": [
+    {"id": "web", "label": "Web", "role": "service", "layer": 0},
+    {"id": "db",  "label": "MySQL", "role": "database", "layer": 1}
+  ],
+  "groups": [{"id": "app", "label": "应用层", "color": "blue"}],
+  "edges": [{"from": "web", "to": "db", "label": "读写"}]
+}
+```
+
+```bash
+# 生成（坐标自动计算，默认套 linlan 风格）
+python scripts/build_diagram.py spec.json -o diagram.drawio
+
+# 结构 lint（ERROR 必须为 0）
+python scripts/validate.py diagram.drawio
+```
+
+不知道选什么结构？先看 `references/architecture-patterns.md` 里的 5 套骨架。
+
+### 2. 提取个人风格
 
 ```bash
 # 从目录批量提取，生成 styles/linlan.json
@@ -71,16 +102,25 @@ drawio -x -f pdf -o diagram.pdf diagram.drawio
 
 ```
 drawio-skills/
-├── SKILL.md                  # 技能定义（AI 使用）
-├── README.md                 # 用户文档（本文）
+├── SKILL.md                       # 技能定义（AI 使用）
+├── README.md                      # 用户文档（本文）
 ├── scripts/
-│   ├── extract_style.py      # 风格提取（确定性）
-│   ├── analyze_style.py      # 逐文件风格统计
-│   └── ref_analyze.py        # 参考图分析（风格+结构）
+│   ├── build_diagram.py           # 结构化 spec → drawio（确定性布局）
+│   ├── validate.py                # 结构 lint
+│   ├── extract_style.py           # 风格提取（确定性）
+│   ├── analyze_style.py           # 逐文件风格统计
+│   └── ref_analyze.py             # 参考图分析（风格+结构）
+├── references/
+│   ├── spec-format.md             # DSL 字段说明
+│   ├── architecture-patterns.md   # 5 套架构模式骨架
+│   └── visual-check.md            # 视觉自检规范
+├── examples/
+│   ├── ecommerce-architecture.json  # 示例 spec
+│   └── ecommerce-architecture.drawio# 示例产出
 ├── styles/
-│   ├── schema.json           # preset 结构定义
-│   └── linlan.json           # 个人风格预设
-└── style_report.json         # 风格分析报告
+│   ├── schema.json                # preset 结构定义
+│   └── linlan.json                # 个人风格预设
+└── style_report.json              # 风格分析报告
 ```
 
 ## 已知限制
